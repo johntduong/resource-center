@@ -11,6 +11,8 @@ class App extends Component {
     this.state = {open: false};
   }
 
+  handleClose = () => this.setState({open: false});
+
   render() {
     return (
       <div className="App">
@@ -19,9 +21,12 @@ class App extends Component {
           iconClassNameRight="muidocs-icon-navigation-expand-more"
           onLeftIconButtonTouchTap={() => this.setState({open: !this.state.open})}
         />
-        <Drawer open={this.state.open}>
-          <MenuItem>Menu Item</MenuItem>
-          <MenuItem>Menu Item 2</MenuItem>
+        <Drawer 
+        docked={false}
+        open={this.state.open}
+        onRequestChange={(open) => this.setState({open})}>
+          <MenuItem onClick={this.handleClose}>Menu Item</MenuItem>
+          <MenuItem onClick={this.handleClose}>Menu Item 2</MenuItem>
         </Drawer>
       </div>
     );
