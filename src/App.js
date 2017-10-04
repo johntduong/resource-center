@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import Drawer from 'material-ui/Drawer';
-import MenuItem from 'material-ui/MenuItem';
+import Drawer from 'material-ui/Drawer'
+import MenuItem from 'material-ui/MenuItem'
 import AppBar from 'material-ui/AppBar'
+
 
 class App extends Component {
   constructor(props) {
@@ -11,7 +12,6 @@ class App extends Component {
     this.state = {open: false};
   }
 
-  handleClose = () => this.setState({open: false});
 
   render() {
     return (
