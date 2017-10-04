@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
-import { BrowserRouter, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Route, NavLink } from 'react-router-dom'
 import AppBar from 'material-ui/AppBar'
 import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
@@ -14,6 +14,9 @@ class App extends Component {
     super(props);
     this.state = {open: false};
   }
+
+  handleClose = () => this.setState({open: false});
+
   render() {
     return (
       <BrowserRouter>
@@ -28,27 +31,41 @@ class App extends Component {
             docked={false}
             open={this.state.open}
             onRequestChange={(open) => this.setState({open})}>
-              <MenuItem>
-                <Link to="/">Home</Link>
-              </MenuItem>
-              <MenuItem>
-                <Link to="/logos">Logos</Link>
-              </MenuItem>
-              <MenuItem>
-                <Link to="/posters">Posters</Link>
-              </MenuItem>
-              <MenuItem>
-                <Link to="/letterhead">Letterhead</Link>
-              </MenuItem>
-              <MenuItem>
-                <Link to="/share-a-story">Share a Story</Link>
-              </MenuItem>
-              <MenuItem>
-                <Link to="/service-request-form">Service Request Form</Link>
-              </MenuItem>
-              <MenuItem>
-                <Link to="/tutorial">Tutorial</Link>
-              </MenuItem>
+              <NavLink to="/">
+                <MenuItem onClick={this.handleClose}>
+                  Home
+                </MenuItem>
+              </NavLink>
+              <NavLink to="/logos">
+                <MenuItem onClick={this.handleClose}>
+                  Logos
+                </MenuItem>
+              </NavLink>
+              <NavLink to="/posters">
+                <MenuItem onClick={this.handleClose}>
+                  Posters
+                </MenuItem>
+              </NavLink>
+              <NavLink to="/letterhead">
+                <MenuItem onClick={this.handleClose}>
+                  Letterhead
+                </MenuItem>
+              </NavLink>
+              <NavLink to="/share-a-story">
+                <MenuItem onClick={this.handleClose}>
+                  Share a Story
+                </MenuItem>
+              </NavLink>
+              <NavLink to="/service-request-form">
+                <MenuItem onClick={this.handleClose}>
+                  Service Request Form
+                </MenuItem>
+              </NavLink>
+              <NavLink to="/tutorial">
+                <MenuItem onClick={this.handleClose}>
+                  Tutorial
+                </MenuItem>
+              </NavLink>
             </Drawer>
 
             <Route 
